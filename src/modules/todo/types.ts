@@ -1,7 +1,7 @@
 import { Action } from "redux";
 
 // すべてのTODOアクション一覧
-export type TodosActions = AddTodoAction | ToggleTodoAction;
+export type TodosActions = AddTodoAction | ToggleTodoAction | DeleteTodoAction;
 
 // TODO追加アクションを判定するキー
 export const ADD_TODO = "ADD_TODO";
@@ -22,4 +22,13 @@ export type ToggleTodoPayload = {
 export interface ToggleTodoAction extends Action {
   type: typeof TOGGLE_TODO;
   payload: ToggleTodoPayload;
+}
+
+export const DELETE_TODO = "DELETE_TODO";
+export type DeleteTodoPayload = {
+  id: number;
+};
+export interface DeleteTodoAction extends Action {
+  type: typeof DELETE_TODO;
+  payload: DeleteTodoPayload;
 }

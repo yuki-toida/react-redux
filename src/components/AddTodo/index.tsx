@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
 type Props = {
+  // mapDispatchToProps
   onSubmit: (text: string) => void;
 };
 
-export const AddTodo: React.FC<Props> = props => {
+const AddTodo: React.FC<Props> = props => {
   // React Hooks を使用し関数内でinput.valueをState管理する
   const [inputText, setInputText] = useState("");
   // OnSubmitイベント

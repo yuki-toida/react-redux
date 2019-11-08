@@ -2,12 +2,15 @@ import * as React from "react";
 import Todo from "../Todo";
 
 type Props = {
+  // mapStateToProps
   todos: {
     id: number;
     text: string;
     completed: boolean;
   }[];
+  // mapDispatchToProps
   toggleTodo: (id: number) => void;
+  deleteTodo: (id: number) => void;
 };
 
 const TodoList: React.FC<Props> = (props: Props) => {
@@ -19,8 +22,11 @@ const TodoList: React.FC<Props> = (props: Props) => {
             key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onClick={() => {
+            onComplete={() => {
               props.toggleTodo(todo.id);
+            }}
+            onDelete={() => {
+              props.deleteTodo(todo.id);
             }}
           />
         );

@@ -1,17 +1,22 @@
 import * as React from "react";
-import { List } from "./styled";
+import { TodoListItem } from "./styled";
+import DeleteTodo from "../DeleteTodo";
 
 type Props = {
   text: string;
   completed: boolean;
-  onClick: () => void;
+  onComplete: () => void;
+  onDelete: () => void;
 };
 
 const Todo: React.FC<Props> = (props: Props) => {
   return (
-    <List completed={props.completed} onClick={props.onClick}>
-      {props.text}
-    </List>
+    <li>
+      <DeleteTodo onClick={props.onDelete} />
+      <TodoListItem completed={props.completed} onClick={props.onComplete}>
+        {props.text}
+      </TodoListItem>
+    </li>
   );
 };
 

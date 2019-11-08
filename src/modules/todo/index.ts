@@ -1,4 +1,4 @@
-import { TodosActions, ADD_TODO, TOGGLE_TODO } from "./types";
+import { TodosActions, ADD_TODO, TOGGLE_TODO, DELETE_TODO } from "./types";
 
 export type State = {
   todos: {
@@ -6,11 +6,13 @@ export type State = {
     text: string;
     completed: boolean;
   }[];
+  nextId: number;
 };
 
 const init = (): State => {
   return {
-    todos: []
+    todos: [],
+    nextId: 0
   };
 };
 
@@ -22,11 +24,12 @@ const todoReducer = (state: State = init(), action: TodosActions) => {
         todos: [
           ...state.todos,
           {
-            id: state.todos.length,
+            id: state.nextId++,
             text: action.payload.text,
             completed: false
           }
-        ]
+        ],
+        nextId: state.nextId
       };
     case TOGGLE_TODO:
       return {
@@ -37,7 +40,15 @@ const todoReducer = (state: State = init(), action: TodosActions) => {
                 ...todo,
                 completed: !todo.completed
               };
-        })
+        }),
+        nextId: state.nextId
+      };
+    case DELETE_TODO:
+      return {
+        todos: state.todos.filter(todo => {
+          return todo.id !== action.payload.id;
+        }),
+        nextId: state.nextId
       };
     default:
       return state;

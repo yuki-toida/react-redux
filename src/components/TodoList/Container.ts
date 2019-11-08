@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
 
-import { toggleTodo } from "../../modules/todo/actions";
+import { toggleTodo, deleteTodo } from "../../modules/todo/actions";
 import { RootState } from "../../modules";
 import TodoList from ".";
 
@@ -15,6 +15,9 @@ const mapDispatchToProps = (dispatch: Dispatch<Action>) => {
   return {
     toggleTodo: (id: number) => {
       dispatch(toggleTodo({ id: id }));
+    },
+    deleteTodo: (id: number) => {
+      dispatch(deleteTodo({ id: id }));
     }
   };
 };
