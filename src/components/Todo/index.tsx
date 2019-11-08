@@ -1,4 +1,5 @@
 import * as React from "react";
+import { List } from "./styled";
 
 type Props = {
   text: string;
@@ -8,14 +9,9 @@ type Props = {
 
 const Todo: React.FC<Props> = (props: Props) => {
   return (
-    <li
-      onClick={props.onClick}
-      style={{
-        textDecoration: props.completed ? "line-through" : "none"
-      }}
-    >
+    <List completed={props.completed} onClick={props.onClick}>
       {props.text}
-    </li>
+    </List>
   );
 };
 
