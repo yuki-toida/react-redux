@@ -2,7 +2,7 @@ import * as React from "react";
 import AddTodo from "./components/AddTodo/Container";
 import TodoList from "./components/TodoList/Container";
 
-const component: React.FC = () => {
+const App: React.FC = () => {
   return (
     <div>
       <AddTodo />
@@ -11,4 +11,4 @@ const component: React.FC = () => {
   );
 };
 
-export default component;
+export default App;

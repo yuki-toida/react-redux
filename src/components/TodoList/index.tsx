@@ -10,7 +10,7 @@ type Props = {
   toggleTodo: (id: number) => void;
 };
 
-const component: React.FC<Props> = (props: Props) => {
+const TodoList: React.FC<Props> = (props: Props) => {
   return (
     <ul>
       {props.todos.map(todo => {
@@ -29,4 +29,4 @@ const component: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default component;
+export default TodoList;

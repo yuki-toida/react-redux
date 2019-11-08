@@ -1,22 +1,23 @@
 import {
+  ADD_TODO,
   AddTodoPayload,
   AddTodoAction,
-  ADD_TODO,
+  TOGGLE_TODO,
   ToggleTodoAction,
-  ToggleTodoPayload,
-  TOGGLE_TODO
+  ToggleTodoPayload
 } from "./types";
 
+// ContainerからDispatchされるコールバック関数
 export const addTodo = (payload: AddTodoPayload): AddTodoAction => {
   return {
-    payload,
-    type: ADD_TODO
+    type: ADD_TODO,
+    payload
   };
 };
 
 export const toggleTodo = (payload: ToggleTodoPayload): ToggleTodoAction => {
   return {
-    payload,
-    type: TOGGLE_TODO
+    type: TOGGLE_TODO,
+    payload
   };
 };

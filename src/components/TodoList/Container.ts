@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
 
-import { toggleTodo } from "../../modules/todos/actions";
+import { toggleTodo } from "../../modules/todo/actions";
 import { RootState } from "../../modules";
 import TodoList from ".";
 
 const mapStateToProps = (state: RootState) => {
   return {
-    todos: state.todos.todos
+    todos: state.todo.todos
   };
 };
 

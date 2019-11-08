@@ -6,7 +6,7 @@ type Props = {
   onClick: () => void;
 };
 
-const component: React.FC<Props> = (props: Props) => {
+const Todo: React.FC<Props> = (props: Props) => {
   return (
     <li
       onClick={props.onClick}
@@ -19,4 +19,4 @@ const component: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default component;
+export default Todo;

@@ -14,7 +14,8 @@ const init = (): State => {
   };
 };
 
-export const reducer = (state: State = init(), action: TodosActions) => {
+// TDOOアクションが発火した時に、現在のStateとActionを受け取り、新しいStateを返す
+const todoReducer = (state: State = init(), action: TodosActions) => {
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -29,12 +30,12 @@ export const reducer = (state: State = init(), action: TodosActions) => {
       };
     case TOGGLE_TODO:
       return {
-        todos: state.todos.map(e => {
-          return e.id !== action.payload.id
-            ? e
+        todos: state.todos.map(todo => {
+          return todo.id !== action.payload.id
+            ? todo
             : {
-                ...e,
-                completed: !e.completed
+                ...todo,
+                completed: !todo.completed
               };
         })
       };
@@ -42,3 +43,5 @@ export const reducer = (state: State = init(), action: TodosActions) => {
       return state;
   }
 };
+
+export default todoReducer;
