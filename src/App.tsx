@@ -1,17 +1,17 @@
 import React from "react";
-import AddTodo from "./components/AddTodo/Container";
-import FetchTodo from "./components/FetchTodo/Container";
-import TodoList from "./components/TodoList/Container";
-import Dialog from "./components/Dialog/Container";
+import { Switch, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import TodoListContainer from "./pages/Todos/List/Container";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <Dialog />
-      <FetchTodo />
-      <AddTodo />
-      <TodoList />
-    </div>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/todos" component={TodoListContainer} />
+    </Switch>
   );
 };
 

@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
 
-import { toggleTodo, deleteTodo } from "../../modules/todo/actions";
-import { RootState } from "../../modules";
+import { toggleTodo, deleteTodo } from "../../../modules/todo/actions";
+import { RootState } from "../../../modules";
 import TodoList from ".";
 
 const mapStateToProps = (state: RootState) => {

@@ -9,7 +9,7 @@ type Props = {
   onDelete: () => void;
 };
 
-const Todo: React.FC<Props> = (props: Props) => {
+const TodoItem: React.FC<Props> = (props: Props) => {
   return (
     <li>
       <DeleteTodo onClick={props.onDelete} />
@@ -20,4 +20,4 @@ const Todo: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default Todo;
+export default TodoItem;

@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 
-import { fetchTodoOperation } from "../../modules/todo/operations";
+import { fetchTodoOperation } from "../../../../modules/todo/operations";
 import FetchTodo from ".";
-import { RootState, RootActionTypes } from "../../modules";
+import { RootState, RootActionTypes } from "../../../../modules";
 
 const mapStateToProps = () => {
   return {};

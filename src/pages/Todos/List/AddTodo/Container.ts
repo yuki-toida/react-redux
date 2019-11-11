@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
 
-import { addTodo } from "../../modules/todo/actions";
+import { addTodo } from "../../../../modules/todo/actions";
 import AddTodo from ".";
 
 // store.getState()を受け取り、PresentationalComponent(tsx)のPropに渡す関数

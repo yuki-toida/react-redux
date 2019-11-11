@@ -5,7 +5,7 @@ import { RootState, RootActionTypes } from "../..";
 import { fetchTodo } from "../actions";
 import { openDialog } from "../../dialog/actions";
 
-const url = "https://jsonplaceholder.typicode.com/posts";
+const url = "https://jsonplaceholder.typicode.com/post";
 
 type typicode = {
   userId: number;
@@ -36,7 +36,7 @@ const fetchTodoOperation = (): ThunkAction<
       completed: false
     };
   });
-  const nextId = todos.length;
+  const nextId = todos.length + 1;
 
   dispatch(fetchTodo({ todos: todos, nextId: nextId }));
 };
