@@ -1,8 +1,8 @@
 import { Action } from "redux";
-import { State } from ".";
+import { TodoState } from ".";
 
 // すべてのTODOアクション一覧
-export type TodosActions =
+export type TodoActions =
   | AddTodoAction
   | ToggleTodoAction
   | DeleteTodoAction
@@ -39,7 +39,7 @@ export interface DeleteTodoAction extends Action {
 }
 
 export const FETCH_TODO = "FETCH_TODO";
-export type FetchTodoPayload = State;
+export type FetchTodoPayload = TodoState;
 export interface FetchTodoAction extends Action {
   type: typeof FETCH_TODO;
   payload: FetchTodoPayload;

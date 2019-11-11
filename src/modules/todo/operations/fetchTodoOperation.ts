@@ -1,8 +1,9 @@
 import { ThunkAction } from "redux-thunk";
-import axios from "axios";
+import Axios, { AxiosError } from "axios";
 
 import { RootState, RootActionTypes } from "../..";
 import { fetchTodo } from "../actions";
+import { openDialog } from "../../dialog/actions";
 
 const url = "https://jsonplaceholder.typicode.com/posts";
 
@@ -19,20 +20,25 @@ const fetchTodoOperation = (): ThunkAction<
   null,
   RootActionTypes
 > => async dispatch => {
-  try {
-    const res = await axios.get<typicode[]>(url);
-    const todos = res.data.map(v => {
-      return {
-        id: v.id,
-        text: v.title,
-        completed: false
-      };
-    });
-    const nextId = todos.length;
-    dispatch(fetchTodo({ todos: todos, nextId: nextId }));
-  } catch (error) {
-    console.log(error);
+  const result = await Axios.get<typicode[]>(url).catch(
+    (err: AxiosError) => err
+  );
+
+  if (result instanceof Error) {
+    dispatch(openDialog({ text: result.message }));
+    return;
   }
+
+  const todos = result.data.map(v => {
+    return {
+      id: v.id,
+      text: v.title,
+      completed: false
+    };
+  });
+  const nextId = todos.length;
+
+  dispatch(fetchTodo({ todos: todos, nextId: nextId }));
 };
 
 export default fetchTodoOperation;

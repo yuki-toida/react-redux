@@ -1,12 +1,12 @@
 import {
-  TodosActions,
+  TodoActions,
   ADD_TODO,
   TOGGLE_TODO,
   DELETE_TODO,
   FETCH_TODO
 } from "./types";
 
-export type State = {
+export type TodoState = {
   todos: {
     id: number;
     text: string;
@@ -15,7 +15,7 @@ export type State = {
   nextId: number;
 };
 
-const initState = (): State => {
+const initTodoState = (): TodoState => {
   return {
     todos: [],
     nextId: 0
@@ -23,7 +23,10 @@ const initState = (): State => {
 };
 
 // TDOOアクションが発火した時に、現在のStateとActionを受け取り、新しいStateを返す
-const todoReducer = (state: State = initState(), action: TodosActions) => {
+const todoReducer = (
+  state: TodoState = initTodoState(),
+  action: TodoActions
+) => {
   switch (action.type) {
     case ADD_TODO:
       return {
