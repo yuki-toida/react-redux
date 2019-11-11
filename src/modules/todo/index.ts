@@ -3,7 +3,7 @@ import {
   ADD_TODO,
   TOGGLE_TODO,
   DELETE_TODO,
-  INIT_TODO
+  FETCH_TODO
 } from "./types";
 
 export type State = {
@@ -15,7 +15,7 @@ export type State = {
   nextId: number;
 };
 
-const init = (): State => {
+const initState = (): State => {
   return {
     todos: [],
     nextId: 0
@@ -23,7 +23,7 @@ const init = (): State => {
 };
 
 // TDOOアクションが発火した時に、現在のStateとActionを受け取り、新しいStateを返す
-const todoReducer = (state: State = init(), action: TodosActions) => {
+const todoReducer = (state: State = initState(), action: TodosActions) => {
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -56,11 +56,8 @@ const todoReducer = (state: State = init(), action: TodosActions) => {
         }),
         nextId: state.nextId
       };
-    case INIT_TODO:
-      return {
-        todos: action.payload,
-        nextId: 0
-      };
+    case FETCH_TODO:
+      return action.payload;
     default:
       return state;
   }

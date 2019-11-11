@@ -8,9 +8,9 @@ import {
   DELETE_TODO,
   DeleteTodoPayload,
   DeleteTodoAction,
-  InitTodoPayload,
-  InitTodoAction,
-  INIT_TODO
+  FetchTodoPayload,
+  FetchTodoAction,
+  FETCH_TODO
 } from "./types";
 
 // ContainerからDispatchされるコールバック関数
@@ -35,9 +35,9 @@ export const deleteTodo = (payload: DeleteTodoPayload): DeleteTodoAction => {
   };
 };
 
-export const initTodo = (payload: InitTodoPayload): InitTodoAction => {
+export const fetchTodo = (payload: FetchTodoPayload): FetchTodoAction => {
   return {
-    type: INIT_TODO,
+    type: FETCH_TODO,
     payload: payload
   };
 };
