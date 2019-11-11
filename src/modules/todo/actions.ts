@@ -7,7 +7,10 @@ import {
   ToggleTodoPayload,
   DELETE_TODO,
   DeleteTodoPayload,
-  DeleteTodoAction
+  DeleteTodoAction,
+  InitTodoPayload,
+  InitTodoAction,
+  INIT_TODO
 } from "./types";
 
 // ContainerからDispatchされるコールバック関数
@@ -28,6 +31,13 @@ export const toggleTodo = (payload: ToggleTodoPayload): ToggleTodoAction => {
 export const deleteTodo = (payload: DeleteTodoPayload): DeleteTodoAction => {
   return {
     type: DELETE_TODO,
+    payload: payload
+  };
+};
+
+export const initTodo = (payload: InitTodoPayload): InitTodoAction => {
+  return {
+    type: INIT_TODO,
     payload: payload
   };
 };

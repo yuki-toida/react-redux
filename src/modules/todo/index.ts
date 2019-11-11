@@ -1,4 +1,10 @@
-import { TodosActions, ADD_TODO, TOGGLE_TODO, DELETE_TODO } from "./types";
+import {
+  TodosActions,
+  ADD_TODO,
+  TOGGLE_TODO,
+  DELETE_TODO,
+  INIT_TODO
+} from "./types";
 
 export type State = {
   todos: {
@@ -49,6 +55,11 @@ const todoReducer = (state: State = init(), action: TodosActions) => {
           return todo.id !== action.payload.id;
         }),
         nextId: state.nextId
+      };
+    case INIT_TODO:
+      return {
+        todos: action.payload,
+        nextId: 0
       };
     default:
       return state;

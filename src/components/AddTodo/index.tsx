@@ -24,12 +24,10 @@ const AddTodo: React.FC<Props> = props => {
     setInputText(e.currentTarget.value);
   };
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input type="text" onChange={onChange} value={inputText} />
-        <button type="submit">Add Todo</button>
-      </form>
-    </div>
+    <form onSubmit={onSubmit}>
+      <input type="text" onChange={onChange} value={inputText} />
+      <button type="submit">Add</button>
+    </form>
   );
 };
 

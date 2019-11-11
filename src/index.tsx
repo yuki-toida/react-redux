@@ -1,13 +1,9 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { createStore } from "redux";
+import React from "react";
+import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 import App from "./App";
-import { rootReducer } from "./modules";
-import { composeWithDevTools } from "redux-devtools-extension";
-
-const store = createStore(rootReducer, composeWithDevTools());
+import store from "./modules";
 
 ReactDOM.render(
   <Provider store={store}>

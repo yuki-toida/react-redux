@@ -1,7 +1,11 @@
 import { Action } from "redux";
 
 // すべてのTODOアクション一覧
-export type TodosActions = AddTodoAction | ToggleTodoAction | DeleteTodoAction;
+export type TodosActions =
+  | AddTodoAction
+  | ToggleTodoAction
+  | DeleteTodoAction
+  | InitTodoAction;
 
 // TODO追加アクションを判定するキー
 export const ADD_TODO = "ADD_TODO";
@@ -31,4 +35,15 @@ export type DeleteTodoPayload = {
 export interface DeleteTodoAction extends Action {
   type: typeof DELETE_TODO;
   payload: DeleteTodoPayload;
+}
+
+export const INIT_TODO = "INIT_TODO";
+export type InitTodoPayload = {
+  id: number;
+  text: string;
+  completed: boolean;
+}[];
+export interface InitTodoAction extends Action {
+  type: typeof INIT_TODO;
+  payload: InitTodoPayload;
 }
