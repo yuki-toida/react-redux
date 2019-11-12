@@ -1,4 +1,4 @@
-import { TodosEditActions } from "./types";
+import { TodosEditActions, GET_TODO } from "./types";
 import { Todo } from "../../../../types/Todo";
 
 export type TodosEditState = {
@@ -20,6 +20,10 @@ const todosEditReducer = (
   action: TodosEditActions
 ) => {
   switch (action.type) {
+    case GET_TODO:
+      return {
+        todo: action.payload
+      };
     default:
       return state;
   }

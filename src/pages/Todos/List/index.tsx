@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import FindTodoContainer from "./FindTodo/Container";
 import AddTodoContainer from "./AddTodo/Container";
@@ -7,9 +8,9 @@ import { TodosListItem } from "./styled";
 
 type Props = {
   todos: Todo[];
+  findTodo: () => void;
   toggleTodo: (id: number) => void;
   deleteTodo: (id: number) => void;
-  findTodo: () => void;
 };
 
 const TodosList: React.FC<Props> = (props: Props) => {
@@ -18,14 +19,14 @@ const TodosList: React.FC<Props> = (props: Props) => {
     // eslint-disable-next-line
   }, []);
 
-  const onDelete = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
-    e.preventDefault();
-    props.deleteTodo(id);
-  };
-
   const onToggle = (e: React.MouseEvent<HTMLSpanElement>, id: number) => {
     e.preventDefault();
     props.toggleTodo(id);
+  };
+
+  const onDelete = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+    e.preventDefault();
+    props.deleteTodo(id);
   };
 
   return (
@@ -37,6 +38,7 @@ const TodosList: React.FC<Props> = (props: Props) => {
           return (
             <li key={todo.id}>
               <button onClick={e => onDelete(e, todo.id)}>Delete</button>
+              <Link to={"/todos/" + todo.id}>Edit</Link>
               <TodosListItem
                 completed={todo.completed}
                 onClick={e => onToggle(e, todo.id)}

@@ -1,7 +1,6 @@
 import { Action } from "redux";
 import { TodosListState } from ".";
 
-// すべてのTODOアクション一覧
 export type TodosListActions =
   | AddTodoAction
   | ToggleTodoAction

@@ -19,14 +19,14 @@ const mapDispatchToProps = (
   dispatch: ThunkDispatch<RootState, null, RootActionTypes>
 ) => {
   return {
+    findTodo: () => {
+      dispatch(findTodoOperation());
+    },
     toggleTodo: (id: number) => {
       dispatch(toggleTodo({ id: id }));
     },
     deleteTodo: (id: number) => {
       dispatch(deleteTodo({ id: id }));
-    },
-    findTodo: () => {
-      dispatch(findTodoOperation());
     }
   };
 };
