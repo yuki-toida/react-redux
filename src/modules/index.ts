@@ -9,10 +9,11 @@ import {
 } from "connected-react-router";
 import { createBrowserHistory } from "history";
 
-import { TodoActions } from "./todo/types";
-import todoReducer from "./todo";
+import todosReducer from "./pages/todos";
 import { DialogActions } from "./dialog/types";
 import dialogReducer from "./dialog";
+import { TodosListActions } from "./pages/todos/list/types";
+import { TodosEditActions } from "./pages/todos/edit/types";
 
 const logger = createLogger({
   collapsed: true
@@ -22,7 +23,7 @@ export const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
   router: connectRouter(history),
-  todo: todoReducer,
+  todos: todosReducer,
   dialog: dialogReducer
 });
 
@@ -33,8 +34,9 @@ const store = createStore(
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type RootActionTypes =
-  | TodoActions
   | DialogActions
-  | CallHistoryMethodAction;
+  | CallHistoryMethodAction
+  | TodosListActions
+  | TodosEditActions;
 
 export default store;

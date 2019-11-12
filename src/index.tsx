@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
 
-import App from "./App";
 import store, { history } from "./modules";
+import App from "./App";
 
 ReactDOM.render(
   <Provider store={store}>

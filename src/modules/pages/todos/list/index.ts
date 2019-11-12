@@ -1,31 +1,27 @@
 import {
-  TodoActions,
+  TodosListActions,
   ADD_TODO,
   TOGGLE_TODO,
   DELETE_TODO,
-  FETCH_TODO
+  FIND_TODO
 } from "./types";
+import { Todo } from "../../../../types/Todo";
 
-export type TodoState = {
-  todos: {
-    id: number;
-    text: string;
-    completed: boolean;
-  }[];
+export type TodosListState = {
+  todos: Todo[];
   nextId: number;
 };
 
-const initTodoState = (): TodoState => {
+const initTodosListState = (): TodosListState => {
   return {
     todos: [],
     nextId: 0
   };
 };
 
-// TDOOアクションが発火した時に、現在のStateとActionを受け取り、新しいStateを返す
-const todoReducer = (
-  state: TodoState = initTodoState(),
-  action: TodoActions
+const todosListReducer = (
+  state: TodosListState = initTodosListState(),
+  action: TodosListActions
 ) => {
   switch (action.type) {
     case ADD_TODO:
@@ -34,7 +30,7 @@ const todoReducer = (
           ...state.todos,
           {
             id: state.nextId++,
-            text: action.payload.text,
+            title: action.payload.title,
             completed: false
           }
         ],
@@ -59,11 +55,11 @@ const todoReducer = (
         }),
         nextId: state.nextId
       };
-    case FETCH_TODO:
+    case FIND_TODO:
       return action.payload;
     default:
       return state;
   }
 };
 
-export default todoReducer;
+export default todosListReducer;

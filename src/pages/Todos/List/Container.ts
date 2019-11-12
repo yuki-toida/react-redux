@@ -1,23 +1,32 @@
 import { connect } from "react-redux";
-import { Action, Dispatch } from "redux";
+import { ThunkDispatch } from "redux-thunk";
 
-import { toggleTodo, deleteTodo } from "../../../modules/todo/actions";
-import { RootState } from "../../../modules";
-import TodoList from ".";
+import {
+  toggleTodo,
+  deleteTodo
+} from "../../../modules/pages/todos/list/actions";
+import { findTodoOperation } from "../../../modules/pages/todos/list/operations";
+import { RootState, RootActionTypes } from "../../../modules";
+import TodosList from ".";
 
 const mapStateToProps = (state: RootState) => {
   return {
-    todos: state.todo.todos
+    todos: state.todos.todosList.todos
   };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<Action>) => {
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<RootState, null, RootActionTypes>
+) => {
   return {
     toggleTodo: (id: number) => {
       dispatch(toggleTodo({ id: id }));
     },
     deleteTodo: (id: number) => {
       dispatch(deleteTodo({ id: id }));
+    },
+    findTodo: () => {
+      dispatch(findTodoOperation());
     }
   };
 };
@@ -25,4 +34,4 @@ const mapDispatchToProps = (dispatch: Dispatch<Action>) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TodoList);
+)(TodosList);

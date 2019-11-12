@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 
-import { fetchTodoOperation } from "../../../../modules/todo/operations";
-import FetchTodo from ".";
+import { findTodoOperation } from "../../../../modules/pages/todos/list/operations";
+import FindTodo from ".";
 import { RootState, RootActionTypes } from "../../../../modules";
 
 const mapStateToProps = () => {
@@ -14,7 +14,7 @@ const mapDispatchToProps = (
 ) => {
   return {
     onClick: () => {
-      dispatch(fetchTodoOperation());
+      dispatch(findTodoOperation());
     }
   };
 };
@@ -22,4 +22,4 @@ const mapDispatchToProps = (
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FetchTodo);
+)(FindTodo);

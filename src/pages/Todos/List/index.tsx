@@ -1,41 +1,49 @@
-import React from "react";
-import TodoItem from "./TodoItem";
-import DialogContainer from "../../../components/Dialog/Container";
-import FetchTodoContainer from "./FetchTodo/Container";
+import React, { useEffect } from "react";
+
+import FindTodoContainer from "./FindTodo/Container";
 import AddTodoContainer from "./AddTodo/Container";
+import { Todo } from "../../../types/Todo";
+import { TodosListItem } from "./styled";
 
 type Props = {
-  // mapStateToProps
-  todos: {
-    id: number;
-    text: string;
-    completed: boolean;
-  }[];
-  // mapDispatchToProps
+  todos: Todo[];
   toggleTodo: (id: number) => void;
   deleteTodo: (id: number) => void;
+  findTodo: () => void;
 };
 
-const TodoList: React.FC<Props> = (props: Props) => {
+const TodosList: React.FC<Props> = (props: Props) => {
+  useEffect(() => {
+    props.findTodo();
+    // eslint-disable-next-line
+  }, []);
+
+  const onDelete = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+    e.preventDefault();
+    props.deleteTodo(id);
+  };
+
+  const onToggle = (e: React.MouseEvent<HTMLSpanElement>, id: number) => {
+    e.preventDefault();
+    props.toggleTodo(id);
+  };
+
   return (
     <div>
-      <DialogContainer />
-      <FetchTodoContainer />
+      <FindTodoContainer />
       <AddTodoContainer />
       <ul>
         {props.todos.map(todo => {
           return (
-            <TodoItem
-              key={todo.id}
-              text={todo.text}
-              completed={todo.completed}
-              onComplete={() => {
-                props.toggleTodo(todo.id);
-              }}
-              onDelete={() => {
-                props.deleteTodo(todo.id);
-              }}
-            />
+            <li key={todo.id}>
+              <button onClick={e => onDelete(e, todo.id)}>Delete</button>
+              <TodosListItem
+                completed={todo.completed}
+                onClick={e => onToggle(e, todo.id)}
+              >
+                {todo.id}:{todo.title}
+              </TodosListItem>
+            </li>
           );
         })}
       </ul>
@@ -43,4 +51,4 @@ const TodoList: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default TodoList;
+export default TodosList;

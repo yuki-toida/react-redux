@@ -8,12 +8,11 @@ import {
   DELETE_TODO,
   DeleteTodoPayload,
   DeleteTodoAction,
-  FetchTodoPayload,
-  FetchTodoAction,
-  FETCH_TODO
+  FIND_TODO,
+  FindTodoPayload,
+  FindTodoAction
 } from "./types";
 
-// ContainerからDispatchされるコールバック関数
 export const addTodo = (payload: AddTodoPayload): AddTodoAction => {
   return {
     type: ADD_TODO,
@@ -35,9 +34,9 @@ export const deleteTodo = (payload: DeleteTodoPayload): DeleteTodoAction => {
   };
 };
 
-export const fetchTodo = (payload: FetchTodoPayload): FetchTodoAction => {
+export const findTodo = (payload: FindTodoPayload): FindTodoAction => {
   return {
-    type: FETCH_TODO,
+    type: FIND_TODO,
     payload: payload
   };
 };

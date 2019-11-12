@@ -9,9 +9,7 @@ type Props = {
 };
 
 const Dialog: React.FC<Props> = props => {
-  useEffect(() => {
-    Modal.setAppElement("body");
-  }, []);
+  useEffect(() => Modal.setAppElement("body"), []);
 
   return (
     <Modal isOpen={props.isOpen} style={CustomStyles}>

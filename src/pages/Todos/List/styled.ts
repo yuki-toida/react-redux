@@ -4,6 +4,6 @@ interface Props {
   completed: boolean;
 }
 
-export const TodoListItem = styled.span<Props>`
+export const TodosListItem = styled.span<Props>`
   text-decoration: ${props => (props.completed ? "line-through" : "none")};
 `;
