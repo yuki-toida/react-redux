@@ -1,5 +1,5 @@
 import { TodosEditActions, GET_TODO } from "./types";
-import { Todo } from "../../../../types/Todo";
+import { Todo } from "types/Todo";
 
 export type TodosEditState = {
   todo: Todo;

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { AButton } from "movo_ui";
+
 type Props = {
   onSubmit: (text: string) => void;
 };
@@ -25,7 +27,7 @@ const AddTodo: React.FC<Props> = props => {
   return (
     <form onSubmit={onSubmit}>
       <input type="text" onChange={onChange} value={inputText} />
-      <button type="submit">Add</button>
+      <AButton type="submit">Add</AButton>
     </form>
   );
 };

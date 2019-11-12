@@ -1,5 +1,5 @@
 import { Action } from "redux";
-import { Todo } from "../../../../types/Todo";
+import { Todo } from "types/Todo";
 
 export type TodosEditActions = GetTodoAction;
 

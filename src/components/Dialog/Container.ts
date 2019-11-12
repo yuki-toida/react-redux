@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
 
-import { RootState } from "../../modules";
-import { closeDialog } from "../../modules/dialog/actions";
+import { RootState } from "modules";
+import { closeDialog } from "modules/dialog/actions";
 
 import Dialog from ".";
 

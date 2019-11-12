@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import { AButton } from "movo_ui";
 import FindTodoContainer from "./FindTodo/Container";
 import AddTodoContainer from "./AddTodo/Container";
-import { Todo } from "../../../types/Todo";
+import { Todo } from "types/Todo";
 import { TodosListItem } from "./styled";
 
 type Props = {
@@ -24,8 +25,7 @@ const TodosList: React.FC<Props> = (props: Props) => {
     props.toggleTodo(id);
   };
 
-  const onDelete = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
-    e.preventDefault();
+  const onDelete = (id: number) => {
     props.deleteTodo(id);
   };
 
@@ -37,7 +37,7 @@ const TodosList: React.FC<Props> = (props: Props) => {
         {props.todos.map(todo => {
           return (
             <li key={todo.id}>
-              <button onClick={e => onDelete(e, todo.id)}>Delete</button>
+              <AButton onClick={() => onDelete(todo.id)}>Delete</AButton>
               <Link to={"/todos/" + todo.id}>Edit</Link>
               <TodosListItem
                 completed={todo.completed}

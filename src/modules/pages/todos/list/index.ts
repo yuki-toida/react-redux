@@ -5,7 +5,7 @@ import {
   DELETE_TODO,
   FIND_TODO
 } from "./types";
-import { Todo } from "../../../../types/Todo";
+import { Todo } from "types/Todo";
 
 export type TodosListState = {
   todos: Todo[];

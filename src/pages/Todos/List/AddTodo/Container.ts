@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
 
-import { addTodo } from "../../../../modules/pages/todos/list/actions";
+import { addTodo } from "modules/pages/todos/list/actions";
 import AddTodo from ".";
 
 const mapStateToProps = () => {

@@ -1,10 +1,10 @@
 import { ThunkAction } from "redux-thunk";
 import Axios, { AxiosError } from "axios";
 
-import { RootState, RootActionTypes } from "../../../../";
+import { RootState, RootActionTypes } from "modules";
 import { findTodo } from "../actions";
-import { openDialog } from "../../../../dialog/actions";
-import { TypicodeTodo, TypicodeTodosUrl } from "../../../../../types/Typicode";
+import { openDialog } from "modules/dialog/actions";
+import { TypicodeTodo, TypicodeTodosUrl } from "types/Typicode";
 
 const findTodoOperation = (): ThunkAction<
   void,

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import Modal from "react-modal";
-import { CustomStyles } from "./styled";
+import React from "react";
+
+import { AButton, MModalDialog } from "movo_ui";
 
 type Props = {
   isOpen: boolean;
@@ -9,15 +9,17 @@ type Props = {
 };
 
 const Dialog: React.FC<Props> = props => {
-  useEffect(() => Modal.setAppElement("body"), []);
-
   return (
-    <Modal isOpen={props.isOpen} style={CustomStyles}>
-      {props.text}
+    <MModalDialog
+      title={props.text}
+      open={props.isOpen}
+      onClose={() => {}}
+      rightActions={AButton}
+    >
       <div>
-        <button onClick={props.onClose}>Close</button>
+        <AButton onClick={props.onClose}>Close</AButton>
       </div>
-    </Modal>
+    </MModalDialog>
   );
 };
 

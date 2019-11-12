@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
+import { AButton } from "movo_ui";
 
 const Home: React.FC = () => {
   const history = useHistory();
@@ -10,7 +11,7 @@ const Home: React.FC = () => {
         <Link to="/todos">Todo</Link>
       </li>
       <li>
-        <button onClick={() => history.push("/about")}>About</button>
+        <AButton onClick={() => history.push("/about")}>About</AButton>
       </li>
     </ul>
   );
