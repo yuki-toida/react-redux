@@ -17,7 +17,7 @@
 		"eslint-config-prettier": "^6.0.0",
 		"eslint-plugin-prettier": "^3.1.0",
 		"eslint-plugin-react": "^7.16.0",
-		"movo_ui": "git+ssh://git@bitbucket.org/hacobu/movo_ui.git",
+		"movo-ui": "git+ssh://git@bitbucket.org/hacobu/movo-ui.git",
 		"prettier": "^1.18.2",
 		"react": "^16.11.0",
 		"react-dom": "^16.11.0",

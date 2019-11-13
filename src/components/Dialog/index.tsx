@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AButton, MModalDialog } from "movo_ui";
+import { AButton, MModalDialog } from "movo-ui";
 
 type Props = {
   isOpen: boolean;

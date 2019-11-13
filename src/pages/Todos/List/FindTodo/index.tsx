@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AButton } from "movo_ui";
+import { AButton } from "movo-ui";
 
 type Props = {
   onClick: () => void;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { AButton } from "movo_ui";
+import { AButton } from "movo-ui";
 import FindTodoContainer from "./FindTodo/Container";
 import AddTodoContainer from "./AddTodo/Container";
 import { Todo } from "types/Todo";
