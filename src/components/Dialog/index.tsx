@@ -8,18 +8,14 @@ type Props = {
   onClose: () => void;
 };
 
-const Dialog: React.FC<Props> = props => {
+const Dialog: React.FC<Props> = ({ text, isOpen, onClose }) => {
   return (
     <MModalDialog
-      title={props.text}
-      open={props.isOpen}
-      onClose={() => {}}
-      rightActions={AButton}
-    >
-      <div>
-        <AButton onClick={props.onClose}>Close</AButton>
-      </div>
-    </MModalDialog>
+      title={text}
+      open={isOpen}
+      onClose={onClose}
+      rightActions={<AButton />}
+    />
   );
 };
 
